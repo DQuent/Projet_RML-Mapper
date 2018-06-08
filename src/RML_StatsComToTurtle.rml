@@ -1,0 +1,380 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix geofla: <http://data.ign.fr/def/geofla#> .
+@prefix ex: <http://www.example.org/StatsCom/> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+
+
+<#Commune>
+
+	rml:logicalSource [
+		rml:source "input/StatsCom.csv" ;
+		rml:referenceFormulation ql:CSV 
+	] ;
+ 
+	rr:subjectMap [
+		rr:template "http://www.example.org/Commune/{LibCommune}" ;
+		rr:class geofla:Commune
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:CodeComm ;
+		rr:objectMap [
+			rml:reference "CODGEO"; 
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:Population ;
+		rr:objectMap [
+			rml:reference "Population2012"; 
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:Superficie ;
+		rr:objectMap [
+			rml:reference "Superficie";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Metropole ;
+		rr:objectMap [
+			rml:reference "Metropole";
+			rr:datatype xsd:string
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:lat ;
+		rr:objectMap [
+			rml:reference "Latitude";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:long ;
+		rr:objectMap [
+			rml:reference "Longitude";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:region ;
+		rr:objectMap [
+			rr:parentTriplesMap <#Region>
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:dpt ;
+		rr:objectMap [
+			rr:parentTriplesMap <#Departement>
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Naissances20072012;
+		rr:objectMap [
+			rml:reference "Naissances2007-2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Deces20072012;
+		rr:objectMap [
+			rml:reference "Deces2007-2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Menages2012;
+		rr:objectMap [
+			rml:reference "Menages2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+
+	rr:predicateObjectMap [
+		rr:predicate ex:NaissancesDomiciliees2013;
+		rr:objectMap [
+			rml:reference "NaissancesDomiciliees2013";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:DecesDomicilies2013;
+		rr:objectMap [
+			rml:reference "DecesDomicilies2013";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Logements2012;
+		rr:objectMap [
+			rml:reference "Logements2012";
+			rr:datatype xsd:number
+		]
+	] ;
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:Residences2012;
+		rr:objectMap [
+			rml:reference "Residences2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:ResidencesSecondaires2012;
+		rr:objectMap [
+			rml:reference "ResidencesSecondaires2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:LogementsVacants2012;
+		rr:objectMap [
+			rml:reference "LogementsVacants2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:LogementsVacants2012;
+		rr:objectMap [
+			rml:reference "LogementsVacants2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:ResidencesPrincipalesPropriétaires2012;
+		rr:objectMap [
+			rml:reference "ResidencesPrincipalesPropriétaires2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:NombreMenagesFiscaux2012;
+		rr:objectMap [
+			rml:reference "NombreMenagesFiscaux2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:PartMenagesFiscauxImposes2012;
+		rr:objectMap [
+			rml:reference "PartMenagesFiscauxImposes2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EmploisLT2007;
+		rr:objectMap [
+			rml:reference "EmploisLT2007"; 
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Chomeurs15-64ans2012;
+		rr:objectMap [
+			rml:reference "Chomeurs15-64ans2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:MedianeRevenuDispoUC2012;
+		rr:objectMap [
+			rml:reference "MedianeRevenuDispoUC2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:TauxPauvrete2012;
+		rr:objectMap [
+			rml:reference "TauxPauvrete2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EmploisLT2012;
+		rr:objectMap [
+			rml:reference "EmploisLT2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EmploisSalariesLT2012;
+		rr:objectMap [
+			rml:reference "EmploisSalariesLT2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Pop15-64ans2012;
+		rr:objectMap [
+			rml:reference "Pop15-64ans2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Actifs15-64ans2012;
+		rr:objectMap [
+			rml:reference "Actifs15-64ans2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:Chomeurs15-64ans2012;
+		rr:objectMap [
+			rml:reference "Chomeurs15-64ans2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:TotalEtsActifsFin2012;
+		rr:objectMap [
+			rml:reference "TotalEtsActifsFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsAgricultureFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsAgricultureFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsIndustrieFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsIndustrieFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsIndustrieFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsIndustrieFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsConstructionFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsConstructionFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsCommerceServicesFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsCommerceServicesFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsReparationAutoFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsReparationAutoFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifsAdmPubliqueFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifsAdmPubliqueFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifs1-9SalariésFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifs1-9SalariésFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate ex:EtsActifs10ouPlusFin2012;
+		rr:objectMap [
+			rml:reference "EtsActifs10ouPlusFin2012";
+			rr:datatype xsd:number
+		]
+	] ;
+	.
+
+<#Region>
+	rml:logicalSource [
+		rml:source "input/StatsCom.csv" ;
+		rml:referenceFormulation ql:CSV 
+	] ;
+ 
+	rr:subjectMap [
+		rr:template "http://www.example.org/Region/{Region}" ;
+		rr:class geofla:Region
+	] ;
+	.
+
+
+<#Departement>
+	rml:logicalSource [
+		rml:source "input/StatsCom.csv" ;
+		rml:referenceFormulation ql:CSV 
+	] ;
+ 
+	rr:subjectMap [
+		rr:template "http://www.example.org/Departement/{Departement}" ;
+		rr:class geofla:Departement
+	] ;
+
+	rr:predicateObjectMap [
+		rr:predicate geofla:region ;
+		rr:objectMap [
+			rr:parentTriplesMap <#Region>
+		]
+	] ;
+	.
+
+
